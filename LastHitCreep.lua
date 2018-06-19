@@ -482,7 +482,7 @@ end;
 
 function LastHitCreep.PredictCreepHPAround(list, ent, range, team)
 	LastHitCreep.Creeps = Entity.GetUnitsInRadius(ent, range, team);
-	if not LastHitCreep.Creeps or (#LastHitCreep.Creeps<=1) or LastHitCreep.GetPrediction() == 0 then
+	if not LastHitCreep.Creeps or (#LastHitCreep.Creeps<=1) then ---or LastHitCreep.GetPrediction() == 0 then
 		return;
 	end; 
 	--[[
