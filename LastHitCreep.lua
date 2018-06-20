@@ -569,7 +569,7 @@ function LastHitCreep.FindBestTarget()
 		if LastHitCreep.isPrediction() then
 			local DieTimeMax =  function(t, a, b) return t[b].DieTime > t[a].DieTime end;
 			for npc, predicted in spairs(LastHitCreep.CreepsPredictedDieTime, DieTimeMax) do
-				if npc and predicted.DPS and Entity.IsNPC(npc) and Entity.IsAlive(npc) and  --NPC.IsCreep(npc) and
+				if npc and predicted.DPS and Entity.IsNPC(npc) and Entity.IsAlive(npc) and NPC.IsEntityInRange(LastHitCreep.User.Hero,npc,900) and --NPC.IsCreep(npc) and
 					( (not Entity.IsSameTeam(npc, LastHitCreep.User.Hero)and LastHitCreep.isKillEnemys()) or (Entity.IsSameTeam(npc, LastHitCreep.User.Hero) and LastHitCreep.isDenyFriendlys()) ) and
 					((predicted.DieTime - GameTime) > 0)
 				then
@@ -583,7 +583,7 @@ function LastHitCreep.FindBestTarget()
 		end;
 		local HPMax =  function(t, a, b) return t[b].HP > t[a].HP end;
 		for npc, predicted in spairs(LastHitCreep.CreepsPredictedDieTime, HPMax) do
-			if npc and predicted.DPS and Entity.IsNPC(npc) and Entity.IsAlive(npc) and  --NPC.IsCreep(npc) and
+			if npc and predicted.DPS and Entity.IsNPC(npc) and Entity.IsAlive(npc) and NPC.IsEntityInRange(LastHitCreep.User.Hero,npc,900) and --NPC.IsCreep(npc) and
 				( (not Entity.IsSameTeam(npc, LastHitCreep.User.Hero)and LastHitCreep.isKillEnemys()) or (Entity.IsSameTeam(npc, LastHitCreep.User.Hero) and LastHitCreep.isDenyFriendlys()) )
 			then
 				local AttackTime = LastHitCreep.CalcAttackTimeTo(npc);
@@ -598,7 +598,7 @@ function LastHitCreep.FindBestTarget()
 		if LastHitCreep.isPrediction() then
 			local DieTimeMax =  function(t, a, b) return t[b].DieTime > t[a].DieTime end;
 			for npc, predicted in spairs(LastHitCreep.CreepsPredictedDieTime, DieTimeMax) do
-				if npc and predicted.DPS and Entity.IsNPC(npc) and Entity.IsAlive(npc) and  --NPC.IsCreep(npc) and
+				if npc and predicted.DPS and Entity.IsNPC(npc) and Entity.IsAlive(npc) and NPC.IsEntityInRange(LastHitCreep.User.Hero,npc,900) and --NPC.IsCreep(npc) and
 					( (not Entity.IsSameTeam(npc, LastHitCreep.User.Hero)and LastHitCreep.isKillEnemys()) or (Entity.IsSameTeam(npc, LastHitCreep.User.Hero) and LastHitCreep.isDenyFriendlys()) ) and
 					((predicted.DieTime - GameTime) > 0)
 				then
@@ -612,7 +612,7 @@ function LastHitCreep.FindBestTarget()
 		end;
 		local HPMax =  function(t, a, b) return t[b].HP > t[a].HP end;
 		for npc, predicted in spairs(LastHitCreep.CreepsPredictedDieTime, HPMax) do		
-			if npc and predicted.DPS and Entity.IsNPC(npc) and Entity.IsAlive(npc) and
+			if npc and predicted.DPS and Entity.IsNPC(npc) and Entity.IsAlive(npc) and NPC.IsEntityInRange(LastHitCreep.User.Hero,npc,900) and
 				( (not Entity.IsSameTeam(npc, LastHitCreep.User.Hero)and LastHitCreep.isKillEnemys()) or (Entity.IsSameTeam(npc, LastHitCreep.User.Hero) and LastHitCreep.isDenyFriendlys()) )
 			then	
 				local AttackTime = LastHitCreep.CalcAttackTimeTo(npc);
