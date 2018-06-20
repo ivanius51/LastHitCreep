@@ -456,7 +456,9 @@ function LastHitCreep.WriteCreepHPAround(list, ent, range, team)
 	if not LastHitCreep.Creeps or (#LastHitCreep.Creeps<=1) then
 		return;
 	end; 
-	for k, npc in ipairs(LastHitCreep.Creeps) do
+	--for k, npc in ipairs(LastHitCreep.Creeps) do
+	for i=0, #LastHitCreep.Creeps do
+		local npc = LastHitCreep.Creeps[i];
 		if npc and NPC.IsCreep(npc) and not NPC.IsWaitingToSpawn(npc) and Entity.IsAlive(npc) then
 			--todo incapsulate it
 			if list[npc] == nil then
@@ -485,19 +487,12 @@ function LastHitCreep.PredictCreepHPAround(list, ent, range, team)
 	if not LastHitCreep.Creeps or (#LastHitCreep.Creeps<=1) then ---or LastHitCreep.GetPrediction() == 0 then
 		return;
 	end; 
-	--[[
-	for k, npc in ipairs(LastHitCreep.Creeps) do
-		if npc and Entity.IsNPC(npc) and NPC.IsCreep(npc) and not NPC.IsWaitingToSpawn(npc) and Entity.IsAlive(npc) then
 
-		elseif not NPC.IsStructure(npc) then
-			Log.Write(k.."="..npc.." "..Entity.GetClassName(npc));
-			Log.Write(tostring(Entity.IsNPC(npc)).." "..tostring(NPC.IsCreep(npc)).." "..tostring(NPC.IsWaitingToSpawn(npc)).." "..tostring(Entity.IsAlive(npc)).." "..tostring(Entity.IsDormant(npc)));
-		end;
-	end;
-	]]
 
 	LastHitCreep.ReCalcAttackPoint();
-	for k, npc in ipairs(LastHitCreep.Creeps) do
+	--for k, npc in ipairs(LastHitCreep.Creeps) do
+	for i=0, #LastHitCreep.Creeps do
+		local npc = LastHitCreep.Creeps[i];
 		if npc and Entity.IsNPC(npc) and NPC.IsCreep(npc) and not NPC.IsWaitingToSpawn(npc) and Entity.IsAlive(npc) then
 			local HP =  math.floor(Entity.GetHealth(npc) + NPC.GetHealthRegen(npc));
 			if (list[npc] == nil) then
